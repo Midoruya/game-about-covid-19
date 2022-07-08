@@ -1,11 +1,13 @@
 pages:
-    stage: deploy -- Deploy stage of gitlab pages
-    script: -- Start script section
-        - mkdir .public
-        - cp -r * .public
-        - mv .public public
-    artifacts:
-        paths:
-            - public
-    only:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
     - master
+  tags:
+    - pages
